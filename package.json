@@ -1,13 +1,15 @@
 {
-  "name": "nuxt-app",
-  "private": true,
+  "name": "nuxt-auth-micro",
+  "version": "0.0.1",
+  "license": "MIT",
+  "private": false,
   "type": "module",
   "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "build": "nuxi build",
+    "dev": "nuxi dev",
+    "generate": "nuxi generate",
+    "preview": "nuxi preview",
+    "postinstall": "nuxi prepare"
   },
   "dependencies": {
     "nuxt": "^3.16.2",
