@@ -8,12 +8,10 @@ const { $auth } = useNuxtApp()
 async function login(email: string, password: string) {
   try {
     await signInWithEmailAndPassword($auth, email, password)
-
-    console.log('login...')
   } catch (e) {
     console.log(e)
   } finally {
-    console.log('login success')
+    console.log('Login successful')
   }
 }
 
@@ -40,6 +38,6 @@ const handleForm = async () => {
       autocomplete="current-password"
       required
     />
-    <button type="submit" style="padding: 0.5em; margin-block: 1em">LOGIN</button>
+    <UiButton type="submit">LOGIN</UiButton>
   </form>
 </template>
