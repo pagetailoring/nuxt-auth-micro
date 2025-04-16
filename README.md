@@ -20,37 +20,51 @@ Start the development server on [http://localhost:3000](http://localhost:3000)
 
 ### Notes from testing
 
+Table with test results of Gzip sizes in Chrome Incognito mode (Not perfect, but fast).
+
+| ~SSR    | initial budle |    css |   trnsfered | recurces | step & note          |
+| ------- | ------------: | -----: | ----------: | -------: | :------------------- |
+| 16.7 kB |       63.3 kB | 2.8 kB |     89.8 kB |   400 kB | 1 fresh nuxt 3.16.2  |
+| 794 B   |   **47.7 kB** |      0 | **55.9 kB** |   130 kB | 2 clean nuxt 3.16.2  |
+| 801 B   |       79.4 kb |      0 |     87.6 kB |   285 kB | 4 firebase auth init |
+
 #### step 1 - only new fresh nuxt 3.16.2
 
-https://pagespeed.web.dev/analysis/https-dev-vitae-website/5c1oqq9c2z?form_factor=mobile
-https://pagespeed.web.dev/analysis/https-dev-vitae-website/5m77cwhpsq?form_factor=mobile
-
-initial budle 63.3 kB
-css 2.8 kB
-ssr 16.7kB
-all 89.8kb trnsfered
-400kB resources
+- https://pagespeed.web.dev/analysis/https-dev-vitae-website/5c1oqq9c2z?form_factor=mobile
+- https://pagespeed.web.dev/analysis/https-dev-vitae-website/5m77cwhpsq?form_factor=mobile
+- 100 / 95 / 100 / 83
+- 1.4s / 1.5s / 0 / 0 / 1.4s
 
 #### step 2 - clean nuxt 3.16.2 - hello word
 
-https://pagespeed.web.dev/analysis/https-dev-vitae-website/rvwmrsi14t?form_factor=mobile
+- https://pagespeed.web.dev/analysis/https-dev-vitae-website/rvwmrsi14t?form_factor=mobile
+- Performance / Accessibility / Best Practices / SEO
+- 100 / 68 / 100 / 82
+- First Contentful Paint / Largest Contentful Paint / Total Blocking Time / Cumulative Layout Shift / Speed Index
+- FCP / LCP/ TBT / CLS / Speed Index
+- 0.8s / 0.8s / 0 / 0 / 0.8s
 
-initial budle 47.7 kB
-css 0
-ssr 794 B
-all 55.9kB trnsfered
-130kB resources
-
-#### step 3 - devDependencies
+#### step 3 - dev dependencies
 
 https://pagespeed.web.dev/analysis/https-dev-vitae-website/cij810gcea?form_factor=mobile
 
-no changes
+No changes.
 
-bun add -D @nuxt/eslint eslint typescript
-bun add -D vue-tsc typescript
+```
+bun add -D @nuxt/eslint eslint typescript vue-tsc
 bun add -D prettier eslint-config-prettier eslint-plugin-prettier
+```
 
-#### step 4 - firabase dependencies instaled no changes
+#### step 4 - initialize firebase dependencies in plugin
 
-50min
+```
+  const firebaseConfig = { ... }
+  const app = initializeApp(firebaseConfig)
+  const auth = getAuth(app)
+
+  return auth
+```
+
+- https://pagespeed.web.dev/analysis/https-dev-vitae-website/cij810gcea?form_factor=mobile
+- 100 / 73 / 100 / 82
+- 0.8s / 0.8s / 0 / 0 / 0.8s
