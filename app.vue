@@ -6,7 +6,7 @@ const isUser = useUserState()
   <div style="font-family: Tahoma; font-size: 120%; margin-inline: 1rem">
     <h1>Nuxt Auth Firebase micro</h1>
 
-    <LazyTheLoginForm v-if="!isUser" />
+    <LazyAuthLoginForm v-if="!isUser" />
     <LazyTheSecretContent v-else />
   </div>
 </template>
