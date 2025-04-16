@@ -1,5 +1,7 @@
 <template>
-  <div>
-    <h1>Hello word</h1>
+  <div style="font-family: Tahoma">
+    <h1>Nuxt Auth Firebase micro</h1>
+
+    <p>Some text</p>
   </div>
 </template>

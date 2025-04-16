@@ -1,6 +1,6 @@
 # Nuxt Auth Firebase Micro
 
-A project for testing the simplest and fastest authentication solutions for a web application. Possibly also for UI libraries. Built with Nuxt, because it's the simplest choice. Eventually, it will include multiple ready-made variants across different branches.
+A project focused on analyzing bundle size with different tools, using the simplest and fastest authentication solutions for a web application. It also considers styling, performance, and potential UI library integrations. Built with Nuxt for simplicity. Eventually, it will include multiple ready-made variants across different branches.
 
 ## Nuxt 3 + Firebase Auth
 
@@ -22,11 +22,12 @@ Start the development server on [http://localhost:3000](http://localhost:3000)
 
 Table with test results of Gzip sizes in Chrome Incognito mode (Not perfect, but fast).
 
-| ~SSR    | initial budle |    css |   trnsfered | recurces | step & note          |
-| ------- | ------------: | -----: | ----------: | -------: | :------------------- |
-| 16.7 kB |       63.3 kB | 2.8 kB |     89.8 kB |   400 kB | 1 fresh nuxt 3.16.2  |
-| 794 B   |   **47.7 kB** |      0 | **55.9 kB** |   130 kB | 2 clean nuxt 3.16.2  |
-| 801 B   |       79.4 kb |      0 |     87.6 kB |   285 kB | 4 firebase auth init |
+| ~SSR    | initial budle |    css | transferred | recurces | step & note                 |
+| ------- | ------------: | -----: | ----------: | -------: | :-------------------------- |
+| 16.7 kB |       63.3 kB | 2.8 kB |     89.8 kB |   400 kB | 1. fresh nuxt 3.16.2        |
+| 794 B   |   **47.7 kB** |      0 | **55.9 kB** |   130 kB | 2. clean nuxt 3.16.2        |
+| 801 B   |       79.4 kb |      0 |     87.6 kB |   285 kB | 4. firebase auth init       |
+| 954 B   |       79.4 kb |      0 |     89.4 kB |   296 kB | 5. stylling, web vitals fix |
 
 #### step 1 - only new fresh nuxt 3.16.2
 
@@ -67,4 +68,10 @@ bun add -D prettier eslint-config-prettier eslint-plugin-prettier
 
 - https://pagespeed.web.dev/analysis/https-dev-vitae-website/cij810gcea?form_factor=mobile
 - 100 / 73 / 100 / 82
+- 0.8s / 0.8s / 0 / 0 / 0.8s
+
+#### step 5 - minimal styling + Accessibility and SEO
+
+- https://pagespeed.web.dev/analysis/https-dev-vitae-website/8xdi6zh61o?form_factor=mobile
+- 100 / 100 / 100 / 100
 - 0.8s / 0.8s / 0 / 0 / 0.8s
