@@ -20,7 +20,7 @@ Start the development server on [http://localhost:3000](http://localhost:3000)
 
 ### Notes from testing
 
-#### test 1 - only new fresh nuxt 3.16.2
+#### step 1 - only new fresh nuxt 3.16.2
 
 https://pagespeed.web.dev/analysis/https-dev-vitae-website/5c1oqq9c2z?form_factor=mobile
 https://pagespeed.web.dev/analysis/https-dev-vitae-website/5m77cwhpsq?form_factor=mobile
@@ -31,7 +31,7 @@ ssr 16.7kB
 all 89.8kb trnsfered
 400kB resources
 
-#### test 2 - clean nuxt 3.16.2 - hello word
+#### step 2 - clean nuxt 3.16.2 - hello word
 
 https://pagespeed.web.dev/analysis/https-dev-vitae-website/rvwmrsi14t?form_factor=mobile
 
@@ -41,7 +41,7 @@ ssr 794 B
 all 55.9kB trnsfered
 130kB resources
 
-#### test 3 - devDependencies
+#### step 3 - devDependencies
 
 https://pagespeed.web.dev/analysis/https-dev-vitae-website/cij810gcea?form_factor=mobile
 
@@ -50,3 +50,7 @@ no changes
 bun add -D @nuxt/eslint eslint typescript
 bun add -D vue-tsc typescript
 bun add -D prettier eslint-config-prettier eslint-plugin-prettier
+
+#### step 4 - firabase dependencies instaled no changes
+
+50min
