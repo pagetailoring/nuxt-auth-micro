@@ -28,6 +28,8 @@ Table with test results of Gzip sizes in Chrome Incognito mode (Not perfect, but
 | 794 B   |   **47.7 kB** |      0 | **55.9 kB** |   130 kB | 2. clean nuxt 3.16.2        |
 | 801 B   |       79.4 kb |      0 |     87.6 kB |   285 kB | 4. firebase auth init       |
 | 954 B   |       79.4 kb |      0 |     89.4 kB |   296 kB | 5. stylling, web vitals fix |
+| 1.2 kB  |         84 kb |      0 |     94.3 kB |   315 kB | 6. + login form             |
+| 1.2 kB  |       83.5 kb |      0 |     94.9 kB |   315 kB | 6.1 + login form is Lazy    |
 
 #### step 1 - only new fresh nuxt 3.16.2
 
@@ -75,3 +77,7 @@ bun add -D prettier eslint-config-prettier eslint-plugin-prettier
 - https://pagespeed.web.dev/analysis/https-dev-vitae-website/8xdi6zh61o?form_factor=mobile
 - 100 / 100 / 100 / 100
 - 0.8s / 0.8s / 0 / 0 / 0.8s
+
+#### step 6 - login component
+
+- https://pagespeed.web.dev/analysis/https-dev-vitae-website/6vtfquzajk?form_factor=mobile

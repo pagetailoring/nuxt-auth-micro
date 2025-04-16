@@ -7,5 +7,9 @@ export default withNuxt({
     'no-console': 'off',
     'vue/html-self-closing': 'off',
     'vue/multi-word-component-names': 'off',
+    'vue/max-attributes-per-line': 'off',
+
+    '@stylistic/brace-style': 'off',
+    'vue/singleline-html-element-content-newline': 'off',
   },
 })

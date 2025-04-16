@@ -1,7 +1,7 @@
 <template>
-  <div style="font-family: Tahoma">
+  <div style="font-family: Tahoma; font-size: 120%; margin-inline: 1rem">
     <h1>Nuxt Auth Firebase micro</h1>
 
-    <p>Some text</p>
+    <LazyTheLoginForm />
   </div>
 </template>
