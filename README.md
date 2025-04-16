@@ -30,6 +30,7 @@ Table with test results of Gzip sizes in Chrome Incognito mode (Not perfect, but
 | 954 B   |       79.4 kb |      0 |     89.4 kB |   296 kB | 5. stylling, web vitals fix |
 | 1.2 kB  |         84 kb |      0 |     94.3 kB |   315 kB | 6. + login form             |
 | 1.2 kB  |       83.5 kb |      0 |     94.9 kB |   315 kB | 6.1 + login form is Lazy    |
+| 1.2 kB  |       83.9 kb |      0 |       96 kB |   316 kB | 7 login check plugin        |
 
 #### step 1 - only new fresh nuxt 3.16.2
 
