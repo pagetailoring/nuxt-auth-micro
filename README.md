@@ -21,9 +21,9 @@ Start the development server on [http://localhost:3000](http://localhost:3000)
 ### Notes from testing
 
 #### test 1 - only new fresh nuxt 3.16.2
+
 https://pagespeed.web.dev/analysis/https-dev-vitae-website/5c1oqq9c2z?form_factor=mobile
 https://pagespeed.web.dev/analysis/https-dev-vitae-website/5m77cwhpsq?form_factor=mobile
-
 
 initial budle 63.3 kB
 css 2.8 kB
@@ -31,8 +31,8 @@ ssr 16.7kB
 all 89.8kb trnsfered
 400kB resources
 
-
 #### test 2 - clean nuxt 3.16.2 - hello word
+
 https://pagespeed.web.dev/analysis/https-dev-vitae-website/rvwmrsi14t?form_factor=mobile
 
 initial budle 47.7 kB
@@ -40,3 +40,13 @@ css 0
 ssr 794 B
 all 55.9kB trnsfered
 130kB resources
+
+#### test 3 - devDependencies
+
+https://pagespeed.web.dev/analysis/https-dev-vitae-website/cij810gcea?form_factor=mobile
+
+no changes
+
+bun add -D @nuxt/eslint eslint typescript
+bun add -D vue-tsc typescript
+bun add -D prettier eslint-config-prettier eslint-plugin-prettier

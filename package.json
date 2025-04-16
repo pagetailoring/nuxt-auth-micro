@@ -1,19 +1,35 @@
 {
   "name": "nuxt-auth-micro",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "private": false,
   "type": "module",
   "scripts": {
+    "analyze": "nuxi analyze",
     "build": "nuxi build",
+    "clean": "nuxi cleanup",
     "dev": "nuxi dev",
     "generate": "nuxi generate",
+    "host": "nuxi dev --host",
     "preview": "nuxi preview",
-    "postinstall": "nuxi prepare"
+    "postinstall": "nuxi prepare",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "up": "nuxi upgrade",
+    "upgrade": "nuxi upgrade"
   },
   "dependencies": {
     "nuxt": "^3.16.2",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0"
+  },
+  "devDependencies": {
+    "@nuxt/eslint": "^1.3.0",
+    "eslint": "^9.24.0",
+    "eslint-config-prettier": "^10.1.2",
+    "eslint-plugin-prettier": "^5.2.6",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.3",
+    "vue-tsc": "^2.2.8"
   }
 }
