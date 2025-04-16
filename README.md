@@ -2,6 +2,10 @@
 
 A project focused on analyzing bundle size with different tools, using the simplest and fastest authentication solutions for a web application. It also considers styling, performance, and potential UI library integrations. Built with Nuxt for simplicity. Eventually, it will include multiple ready-made variants across different branches.
 
+## Minimal 36.4 kB growth of bundle size
+
+The initial JS bundle size increased by 36.4 kB compared to a bare Nuxt setup, just by adding Firebase Auth in the most minimal way, even without using routing.
+
 ## Nuxt 3 + Firebase Auth
 
 Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
@@ -31,6 +35,9 @@ Table with test results of Gzip sizes in Chrome Incognito mode (Not perfect, but
 | 1.2 kB  |         84 kb |      0 |     94.3 kB |   315 kB | 6. + login form             |
 | 1.2 kB  |       83.5 kb |      0 |     94.9 kB |   315 kB | 6.1 + login form is Lazy    |
 | 1.2 kB  |       83.9 kb |      0 |       96 kB |   316 kB | 7 login check plugin        |
+| 1.3 kB  |       84.1 kb |      0 |     96.9 kB |   317 kB | 8 + logout                  |
+
+### ergo from 2 to 8 initial js bundle size grow 36,4 kB
 
 #### step 1 - only new fresh nuxt 3.16.2
 
@@ -82,3 +89,9 @@ bun add -D prettier eslint-config-prettier eslint-plugin-prettier
 #### step 6 - login component
 
 - https://pagespeed.web.dev/analysis/https-dev-vitae-website/6vtfquzajk?form_factor=mobile
+
+#### step 7 + 8 - login check + logout
+
+- https://pagespeed.web.dev/analysis/https-dev-vitae-website/os7uypxifl?form_factor=mobile
+- 100 / 100 / 100 / 100
+- 0.8s / 0.8s / 0 / 0 / 0.8s
