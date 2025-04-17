@@ -4,6 +4,7 @@ import { defineNuxtPlugin } from '#app'
 
 export default defineNuxtPlugin(() => {
   const firebaseConfig = {
+    // here put your firebase progect config
     apiKey: 'AIzaSyDHQ2gmL5OMDT4Hlk2_jzCwtkW-JKbMrbE',
     authDomain: 'auth-speed.firebaseapp.com',
     projectId: 'auth-speed',
@@ -15,8 +16,6 @@ export default defineNuxtPlugin(() => {
   // Initialize Firebase App
   const app = initializeApp(firebaseConfig)
   const auth = getAuth(app)
-
-  // console.log('🔥 firebase plugin')
 
   return {
     provide: {
