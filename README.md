@@ -6,10 +6,28 @@ A project focused on analyzing bundle size with different tools, using the simpl
 
 The initial JS bundle size increased by 36.4 kB compared to a bare Nuxt setup, just by adding Firebase Auth in the most minimal way, even without using routing.
 
+| size of:       |      init |   clean |      auth |
+| -------------- | --------: | ------: | --------: |
+| JS first chunk |   63.3 kB | 47.7 kB |   84.1 kB |
+| ~SSR           |   16.7 kB |   794 B |    1.3 kB |
+| css            |    2.8 kB |       0 |         0 |
+| transferred    |   89.8 kB | 55.9 kB |   96.9 kB |
+| recurces       |    400 kB |  285 kB |    317 kB |
+| build          | 220.49 kB |      ~~ | 297.05 kB |
+| build gzip     |  63.31 kB |      ~~ |  83.85 kB |
+
+- init: Nuxt Minimal Starter
+- clean: just removed NuxtRouteAnnouncer and NuxtWelcome components
+- auth: (0.1.0) Initialize Firebase Authentication and get a reference to the service in plugin, login, logout components. Tools as eslint and prettier. Typescript. Minimal css in inline styles.
+
 ## Nuxt 3 + Firebase Auth
 
 Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+[Firebase Authentication](https://firebase.google.com/docs/auth) [web documentation](https://firebase.google.com/docs/auth/web/start)
+
+- [@nuxt/eslint](https://eslint.nuxt.com/packages/module)
+- [typescript && vue-tsc](https://nuxt.com/docs/guide/concepts/typescript)
 
 ### Development
 
