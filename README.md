@@ -6,19 +6,20 @@ A project focused on analyzing bundle size with different tools, using the simpl
 
 The initial JS bundle size increased by 36.4 kB compared to a bare Nuxt setup, just by adding Firebase Auth in the most minimal way, even without using routing.
 
-| size of:       |      init |   clean |      auth |
-| -------------- | --------: | ------: | --------: |
-| JS first chunk |   63.3 kB | 47.7 kB |   84.1 kB |
-| ~SSR           |   16.7 kB |   794 B |    1.3 kB |
-| css            |    2.8 kB |       0 |         0 |
-| transferred    |   89.8 kB | 55.9 kB |   96.9 kB |
-| recurces       |    400 kB |  285 kB |    317 kB |
-| build          | 220.49 kB |      ~~ | 297.05 kB |
-| build gzip     |  63.31 kB |      ~~ |  83.85 kB |
+| size of:       |      init |   clean |      auth |     legal |
+| -------------- | --------: | ------: | --------: | --------: |
+| JS first chunk |   63.3 kB | 47.7 kB |   84.2 kB |   81.7 kB |
+| ~SSR           |   16.7 kB |   794 B |    1.3 kB |    1.2 kB |
+| css            |    2.8 kB |       0 |         0 |         0 |
+| transferred    |   89.8 kB | 55.9 kB |   96.9 kB |   94.4 kB |
+| recurces       |    400 kB |  285 kB |    317 kB |    257 kB |
+| build          | 220.49 kB |      ~~ | 297.05 kB | 237.49 kB |
+| build gzip     |  63.31 kB |      ~~ |  83.85 kB |  81.39 kB |
 
 - init: Nuxt Minimal Starter
 - clean: just removed NuxtRouteAnnouncer and NuxtWelcome components
 - auth: (0.1.0) Initialize Firebase Authentication and get a reference to the service in plugin, login, logout components. Tools as eslint and prettier. Typescript. Minimal css in inline styles.
+- legal: (0.1.1) -2.4 kB. Extract legal LICENSES from chunks and consolidate them into /LICENSES.txt.
 
 ## Nuxt 3 + Firebase Auth
 
