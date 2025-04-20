@@ -2,24 +2,38 @@
 
 A project focused on analyzing bundle size with different tools, using the simplest and fastest authentication solutions for a web application. It also considers styling, performance, and potential UI library integrations. Built with Nuxt for simplicity. Eventually, it will include multiple ready-made variants across different branches.
 
-## Minimal 36.4 kB growth of bundle size
+## Tests table
 
-The initial JS bundle size increased by 36.4 kB compared to a bare Nuxt setup, just by adding Firebase Auth in the most minimal way, even without using routing.
+| ver   |     build | bd. gzip |    DIFF. |     ssr |    css |    xfr. |   res. | req. |   chunk |
+| :---- | --------: | -------: | -------: | ------: | -----: | ------: | -----: | ---: | ------: |
+| init  | 220.49 kB | 63.31 kB |        - | 16.7 kB | 2.8 kB | 89.8 kB | 400 kB |      | 63.3 kB |
+| clean |           | 47.70 kB | -15.6 kB |   794 B |      0 | 55.9 kB | 285 kB |      | 47.7 kB |
+| auth  | 297.05 kB | 83.85 kB |  36.5 kB |  1.3 kB |      0 | 96.9 kB | 317 kB |      | 84.2 kB |
+| legal | 237.49 kB | 81.39 kB |  -2.5 kB |  1.2 kB |      0 | 94.4 kB | 257 kB |   12 | 81.6 kB |
 
-| size of:       |      init |   clean |      auth |     legal |
-| -------------- | --------: | ------: | --------: | --------: |
-| JS first chunk |   63.3 kB | 47.7 kB |   84.2 kB |   81.7 kB |
-| ~SSR           |   16.7 kB |   794 B |    1.3 kB |    1.2 kB |
-| css            |    2.8 kB |       0 |         0 |         0 |
-| transferred    |   89.8 kB | 55.9 kB |   96.9 kB |   94.4 kB |
-| recurces       |    400 kB |  285 kB |    317 kB |    257 kB |
-| build          | 220.49 kB |      ~~ | 297.05 kB | 237.49 kB |
-| build gzip     |  63.31 kB |      ~~ |  83.85 kB |  81.39 kB |
+##### Legend columns
+
+- `ver`: version / test / try
+- `build`: first JS chunk size (from build by `nuxt generate`)
+- `bd. gzip`: gzipped build size
+- `DIFF`: difference between versions
+- `ssr`: SSR size **(all data below from network test in Chrome DevTools)**
+- `css`: first CSS file (only or largest)
+- `xfr.`: transferred over network
+- `res.`: resources loaded by page
+- `req.`: number of requests
+- `chunk`: first JS chunk size (largest)
+
+##### Versions
 
 - init: Nuxt Minimal Starter
 - clean: just removed NuxtRouteAnnouncer and NuxtWelcome components
 - auth: (0.1.0) Initialize Firebase Authentication and get a reference to the service in plugin, login, logout components. Tools as eslint and prettier. Typescript. Minimal css in inline styles.
 - legal: (0.1.1) -2.4 kB. Extract legal LICENSES from chunks and consolidate them into /LICENSES.txt.
+
+### Minimal 36.4 kB growth of bundle size
+
+The initial JS bundle size increased by 36.4 kB compared to a bare Nuxt setup, just by adding Firebase Auth in the most minimal way, even without using routing.
 
 ## Nuxt 3 + Firebase Auth
 
