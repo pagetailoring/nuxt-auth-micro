@@ -4,36 +4,38 @@ A project focused on analyzing bundle size with different tools, using the simpl
 
 ## Tests table
 
-| ver   |     build | bd. gzip |    DIFF. |     ssr |    css |    xfr. |   res. | req. |   chunk |
-| :---- | --------: | -------: | -------: | ------: | -----: | ------: | -----: | ---: | ------: |
-| init  | 220.49 kB | 63.31 kB |        - | 16.7 kB | 2.8 kB | 89.8 kB | 400 kB |      | 63.3 kB |
-| clean |           | 47.70 kB | -15.6 kB |   794 B |      0 | 55.9 kB | 285 kB |      | 47.7 kB |
-| auth  | 297.05 kB | 83.85 kB |  36.5 kB |  1.3 kB |      0 | 96.9 kB | 317 kB |      | 84.2 kB |
-| legal | 237.49 kB | 81.39 kB |  -2.5 kB |  1.2 kB |      0 | 94.4 kB | 257 kB |   12 | 81.6 kB |
+|        | build kB | bd. gzip |     DIFF. |     ssr |    css |    xfr. |    res. | req. |   chunk |
+| :----- | -------: | -------: | --------: | ------: | -----: | ------: | ------: | ---: | ------: |
+| router |   276.31 | 96.23 kB | +14.84 kB |  1.3 kB |      0 |  110 kB | 1296 kB |   13 | 96.5 kB |
+| legal  |   237.49 | 81.39 kB |   -2.5 kB |  1.2 kB |      0 | 94.4 kB |  257 kB |   12 | 81.6 kB |
+| auth   |   297.05 | 83.85 kB |  +36.5 kB |  1.3 kB |      0 | 96.9 kB |  317 kB |      | 84.2 kB |
+| clean  |          | 47.70 kB |  -15.6 kB |   794 B |      0 | 55.9 kB |  285 kB |      | 47.7 kB |
+| init   |   220.49 | 63.31 kB |         - | 16.7 kB | 2.8 kB | 89.8 kB |  400 kB |      | 63.3 kB |
 
-##### Legend columns
+### Legend columns
 
 - `ver`: version / test / try
 - `build`: first JS chunk size (from build by `nuxt generate`)
 - `bd. gzip`: gzipped build size
 - `DIFF`: difference between versions
-- `ssr`: SSR size **(all data below from network test in Chrome DevTools)**
+- `ssr`: SSR size **(all data _below_ from network test in** `Chrome DevTools`**)**
 - `css`: first CSS file (only or largest)
 - `xfr.`: transferred over network
 - `res.`: resources loaded by page
 - `req.`: number of requests
 - `chunk`: first JS chunk size (largest)
 
-##### Versions
+### Change log / versions
 
+- router: Add `vue-router` by creating two pages in the Nuxt `pages` folder. (0.1.2)
+- legal: Extract legal LICENSES from chunks and consolidate them into /LICENSES.txt. (0.1.1) -2.4 kB.
+- auth: Initialize Firebase Authentication and get a reference to the service in plugin, login, logout components. Tools as eslint and prettier. Typescript. Minimal css in inline styles. (version `0.1.0`)
+- **_clean:_** `reference point` _just removed NuxtRouteAnnouncer and NuxtWelcome components_
 - init: Nuxt Minimal Starter
-- clean: just removed NuxtRouteAnnouncer and NuxtWelcome components
-- auth: (0.1.0) Initialize Firebase Authentication and get a reference to the service in plugin, login, logout components. Tools as eslint and prettier. Typescript. Minimal css in inline styles.
-- legal: (0.1.1) -2.4 kB. Extract legal LICENSES from chunks and consolidate them into /LICENSES.txt.
 
-### Minimal 36.4 kB growth of bundle size
+## Minimal 36.4 kB growth of bundle size
 
-The initial JS bundle size increased by 36.4 kB compared to a bare Nuxt setup, just by adding Firebase Auth in the most minimal way, even without using routing.
+The initial JS bundle size increased by 36.4 kB compared to a bare Nuxt setup, just by adding Firebase Auth in the most minimal way, even without using routing. (version `0.1.0`)
 
 ## Nuxt 3 + Firebase Auth
 
