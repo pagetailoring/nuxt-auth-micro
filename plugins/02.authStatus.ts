@@ -4,6 +4,7 @@ import { defineNuxtPlugin } from '#app'
 export default defineNuxtPlugin(() => {
   const { $auth } = useNuxtApp()
   const isUser = useUserState()
+  const isAuthCheck = useUserCheckState()
 
   if ($auth) {
     onAuthStateChanged($auth, (user) => {
@@ -15,4 +16,6 @@ export default defineNuxtPlugin(() => {
   } else {
     console.error('🔥 Firebase Auth is not initialized')
   }
+
+  isAuthCheck.value = true
 })

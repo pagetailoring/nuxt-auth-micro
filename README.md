@@ -4,13 +4,13 @@ A project focused on analyzing bundle size with different tools, using the simpl
 
 ## Tests table
 
-|        | build kB | bd. gzip |     DIFF. |     ssr |    css |    xfr. |    res. | req. |   chunk |
-| :----- | -------: | -------: | --------: | ------: | -----: | ------: | ------: | ---: | ------: |
-| router |   276.31 | 96.23 kB | +14.84 kB |  1.3 kB |      0 |  110 kB | 1296 kB |   13 | 96.5 kB |
-| legal  |   237.49 | 81.39 kB |   -2.5 kB |  1.2 kB |      0 | 94.4 kB |  257 kB |   12 | 81.6 kB |
-| auth   |   297.05 | 83.85 kB |  +36.5 kB |  1.3 kB |      0 | 96.9 kB |  317 kB |      | 84.2 kB |
-| clean  |          | 47.70 kB |  -15.6 kB |   794 B |      0 | 55.9 kB |  285 kB |      | 47.7 kB |
-| init   |   220.49 | 63.31 kB |         - | 16.7 kB | 2.8 kB | 89.8 kB |  400 kB |      | 63.3 kB |
+|        | build kB | bd. gzip |     DIFF. |     ssr |    css |    xfr. |   res. | req. |   chunk |
+| :----- | -------: | -------: | --------: | ------: | -----: | ------: | -----: | ---: | ------: |
+| router |   276.31 | 96.23 kB | +14.84 kB |  1.3 kB |      0 |  110 kB | 296 kB |   13 | 96.5 kB |
+| legal  |   237.49 | 81.39 kB |   -2.5 kB |  1.2 kB |      0 | 94.4 kB | 257 kB |   12 | 81.6 kB |
+| auth   |   297.05 | 83.85 kB |  +36.5 kB |  1.3 kB |      0 | 96.9 kB | 317 kB |      | 84.2 kB |
+| clean  |          | 47.70 kB |  -15.6 kB |   794 B |      0 | 55.9 kB | 285 kB |      | 47.7 kB |
+| init   |   220.49 | 63.31 kB |         - | 16.7 kB | 2.8 kB | 89.8 kB | 400 kB |      | 63.3 kB |
 
 ### Legend columns
 
@@ -61,16 +61,18 @@ Start the development server on [http://localhost:3000](http://localhost:3000)
 
 Table with test results of Gzip sizes in Chrome Incognito mode (Not perfect, but fast).
 
-| ~SSR    | initial budle |    css | transferred | recurces | step & note                 |
-| ------- | ------------: | -----: | ----------: | -------: | :-------------------------- |
-| 16.7 kB |       63.3 kB | 2.8 kB |     89.8 kB |   400 kB | 1. fresh nuxt 3.16.2        |
-| 794 B   |   **47.7 kB** |      0 | **55.9 kB** |   130 kB | 2. clean nuxt 3.16.2        |
-| 801 B   |       79.4 kb |      0 |     87.6 kB |   285 kB | 4. firebase auth init       |
-| 954 B   |       79.4 kb |      0 |     89.4 kB |   296 kB | 5. stylling, web vitals fix |
-| 1.2 kB  |         84 kb |      0 |     94.3 kB |   315 kB | 6. + login form             |
-| 1.2 kB  |       83.5 kb |      0 |     94.9 kB |   315 kB | 6.1 + login form is Lazy    |
-| 1.2 kB  |       83.9 kb |      0 |       96 kB |   316 kB | 7 login check plugin        |
-| 1.3 kB  |       84.1 kb |      0 |     96.9 kB |   317 kB | 8 + logout                  |
+| bd. kB |  gzip | `diff` | step & note              |     SSR | chunk |   css | xfr. | res. | req |
+| -----: | ----: | -----: | :----------------------- | ------: | ----: | ----: | ---: | ---: | --- |
+| 220.49 | 63.31 |      - | fresh nuxt 3.16.2        | 16.7 kB |  63.3 | 2.8kB | 89.8 |  400 |     |
+|        | 47.70 |  -15.6 | clean nuxt 3.16.2        |   794 B |  47.7 |     0 | 55.9 |  130 |     |
+|        |       |        | firebase auth init       |   801 B |  79.4 |     0 | 87.6 |  285 |     |
+|        |       |        | stylling, web vitals fix |   954 B |  79.4 |     0 | 89.4 |  296 |     |
+|        |       |        | + login form             |  1.2 kB |    84 |     0 | 94.3 |  315 |     |
+|        |       |        | + login form is Lazy     |  1.2 kB |  83.5 |     0 | 94.9 |  315 |     |
+|        |       |        | login check plugin       |  1.2 kB |  83.9 |     0 |   96 |  316 |     |
+|        |       |        | logout                   |  1.3 kB |  84.1 |     0 | 96.9 |  317 |     |
+| 276.31 | 96.23 | +14.84 | `router`                 |  1.3 kB |  96.5 |     0 |  110 |  296 | 13  |
+| 276.47 | 96.31 |  +0.08 | add isAuthCheck          |  1.3 kB |  96.5 |     0 |  109 |  296 | 12  |
 
 ### ergo from 2 to 8 initial js bundle size grow 36,4 kB
 
