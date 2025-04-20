@@ -1,0 +1,4 @@
+<template>
+  <LazyTheSecretContent />
+  <NuxtPage />
+</template>

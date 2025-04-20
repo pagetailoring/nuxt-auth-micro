@@ -1,15 +1,17 @@
-<script lang="ts" setup>
+<script setup lang="ts">
+import { defineAsyncComponent } from 'vue'
+
 const isUser = useUserState()
-const isAuthCheck = useUserCheckState()
+
+// Lazy imports APP with routing only for authenticated users
+const NuxtApp = defineAsyncComponent(() => import('@/components/app/Main.vue'))
+const LoginApp = defineAsyncComponent(() => import('@/components/app/Login.vue'))
 </script>
 
 <template>
   <div style="font-family: Tahoma; font-size: 120%; margin-inline: 1rem">
     <h1>Nuxt Auth Firebase micro</h1>
-    <AppLoading v-if="!isAuthCheck" />
-    <LazyAuthLoginForm v-else-if="!isUser" />
-    <LazyTheSecretContent v-else />
 
-    <NuxtPage />
+    <component :is="isUser ? NuxtApp : LoginApp" />
   </div>
 </template>

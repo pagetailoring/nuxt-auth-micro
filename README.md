@@ -6,6 +6,7 @@ A project focused on analyzing bundle size with different tools, using the simpl
 
 |        | build kB | bd. gzip |     DIFF. |     ssr |    css |    xfr. |   res. | req. |   chunk |
 | :----- | -------: | -------: | --------: | ------: | -----: | ------: | -----: | ---: | ------: |
+| lazy   |   237.45 | 81.39 kB | -14,84 kB |  1.3 kB |      0 |   95 kB | 258 kB |   13 | 81.6 kB |
 | router |   276.31 | 96.23 kB | +14.84 kB |  1.3 kB |      0 |  110 kB | 296 kB |   13 | 96.5 kB |
 | legal  |   237.49 | 81.39 kB |   -2.5 kB |  1.2 kB |      0 | 94.4 kB | 257 kB |   12 | 81.6 kB |
 | auth   |   297.05 | 83.85 kB |  +36.5 kB |  1.3 kB |      0 | 96.9 kB | 317 kB |      | 84.2 kB |
@@ -27,6 +28,7 @@ A project focused on analyzing bundle size with different tools, using the simpl
 
 ### Change log / versions
 
+- lazy: Lazy `vue-router` by moving it to component (0.1.3)
 - router: Add `vue-router` by creating two pages in the Nuxt `pages` folder. (0.1.2)
 - legal: Extract legal LICENSES from chunks and consolidate them into /LICENSES.txt. (0.1.1) -2.4 kB.
 - auth: Initialize Firebase Authentication and get a reference to the service in plugin, login, logout components. Tools as eslint and prettier. Typescript. Minimal css in inline styles. (version `0.1.0`)
@@ -73,6 +75,8 @@ Table with test results of Gzip sizes in Chrome Incognito mode (Not perfect, but
 |        |       |        | logout                   |  1.3 kB |  84.1 |     0 | 96.9 |  317 |     |
 | 276.31 | 96.23 | +14.84 | `router`                 |  1.3 kB |  96.5 |     0 |  110 |  296 | 13  |
 | 276.47 | 96.31 |  +0.08 | add isAuthCheck          |  1.3 kB |  96.5 |     0 |  109 |  296 | 12  |
+| 273.80 | 95.36 |  -0.95 | router in if             |         |       |       |      |      | 13  |
+| 237.45 | 81.39 | -13.97 | router to component      |         |       |       |      |      | 13  |
 
 ### ergo from 2 to 8 initial js bundle size grow 36,4 kB
 

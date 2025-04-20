@@ -10,6 +10,8 @@ const PUBLIC_LICENSE_FILE = resolve(__dirname, 'public/LICENSES.txt')
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   modules: ['@nuxt/eslint'],
+
+  pages: false,
   devtools: { enabled: true },
 
   app: {
@@ -26,6 +28,7 @@ export default defineNuxtConfig({
       ],
     },
   },
+
   compatibilityDate: '2024-11-01',
   vite: {
     esbuild: {
