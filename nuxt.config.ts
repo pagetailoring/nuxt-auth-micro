@@ -11,7 +11,7 @@ const PUBLIC_LICENSE_FILE = resolve(__dirname, 'public/LICENSES.txt')
 export default defineNuxtConfig({
   modules: ['@nuxt/eslint'],
 
-  pages: false,
+  ssr: false,
   devtools: { enabled: true },
 
   app: {
@@ -27,6 +27,10 @@ export default defineNuxtConfig({
         },
       ],
     },
+  },
+  routeRules: {
+    '/': { prerender: true },
+    '/page': { prerender: false },
   },
 
   compatibilityDate: '2024-11-01',

@@ -1,6 +1,6 @@
 <template>
   <div>
     <p>some page</p>
-    <NuxtLink to="/index">home</NuxtLink>
+    <NuxtLink to="/">home</NuxtLink>
   </div>
 </template>
