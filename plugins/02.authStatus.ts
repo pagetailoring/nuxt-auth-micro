@@ -13,11 +13,10 @@ export default defineNuxtPlugin(() => {
         isUser.value = true
       } else {
         isUser.value = false
-        navigateTo('/')
       }
     })
   } else {
-    console.error('🔥 Firebase Auth is not initialized')
+    console.error('🔥 no firebaseAuth')
   }
 
   isAuthCheck.value = true

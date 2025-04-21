@@ -28,12 +28,6 @@ export default defineNuxtConfig({
       ],
     },
   },
-
-  routeRules: {
-    '/': { prerender: true },
-    // '/page': { prerender: fxalse },
-  },
-
   compatibilityDate: '2024-11-01',
 
   vite: {
@@ -55,10 +49,12 @@ export default defineNuxtConfig({
       },
     },
   },
+
   typescript: {
     typeCheck: true,
     strict: true,
   },
+
   hooks: {
     // After the build process completes
     'build:done': async () => {
@@ -76,5 +72,6 @@ export default defineNuxtConfig({
       }
     },
   },
+
   eslint: { config: { stylistic: true } },
 })
