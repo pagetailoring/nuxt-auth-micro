@@ -9,7 +9,7 @@ const PUBLIC_LICENSE_FILE = resolve(__dirname, 'public/LICENSES.txt')
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ['@nuxt/eslint'],
+  modules: ['@nuxt/eslint', '@nuxtjs/html-validator', 'nuxt-payload-analyzer'],
 
   ssr: false,
   devtools: { enabled: true },
@@ -28,12 +28,14 @@ export default defineNuxtConfig({
       ],
     },
   },
+
   routeRules: {
     '/': { prerender: true },
-    '/page': { prerender: false },
+    // '/page': { prerender: fxalse },
   },
 
   compatibilityDate: '2024-11-01',
+
   vite: {
     esbuild: {
       // https://esbuild.github.io/api/#legal-comments
