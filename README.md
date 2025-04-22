@@ -67,7 +67,6 @@ Start the development server on [http://localhost:3000](http://localhost:3000)
 
 ### Notes @todo
 
-- lock roots
 - test: https://vueuse.org/functions.html#category=%40Firebase
 
 ### Notes @todo

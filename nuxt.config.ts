@@ -61,6 +61,9 @@ export default defineNuxtConfig({
   },
 
   hooks: {
+    'prerender:routes'({ routes }) {
+      routes.clear() // Do not generate any routes (except the defaults)
+    },
     // After the build process completes
     'build:done': async () => {
       if (process.env.NODE_ENV !== 'development') {
