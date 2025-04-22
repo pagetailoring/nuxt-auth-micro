@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import { FirebaseError } from 'firebase/app'
+import { loginSuccess, loginUnable } from '~/utils/messages'
 
 const email = ref<string>('')
 const password = ref<string>('')
@@ -29,10 +30,10 @@ async function login(email: string, password: string): Promise<void> {
       console.log(err.message)
     } else {
       console.log(err)
-      error.value = 'Unable to log in'
+      error.value = loginUnable
     }
   } finally {
-    if (isSuccess.value) console.log('😎 ✅ login...')
+    if (isSuccess.value) console.log(loginSuccess)
   }
 }
 

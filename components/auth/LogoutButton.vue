@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { signOut } from 'firebase/auth'
+import { logoutSuccess } from '~/utils/messages'
 
 const isUser = useUserState()
 
@@ -9,7 +10,7 @@ async function logout() {
   await signOut($auth)
   navigateTo('/')
   isUser.value = false
-  console.log('😎 ❌ logout...')
+  console.log(logoutSuccess)
 }
 </script>
 
