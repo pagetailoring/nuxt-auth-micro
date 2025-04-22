@@ -29,7 +29,7 @@ A project focused on analyzing bundle size with different tools, using the simpl
 
 ### Change log / versions
 
-- login: Login refactor, handling error in login form, step back with lazy loding rooting (0.1.3)
+- login: Login refactor etc., handling error in login form, step back with lazy loding rooting (0.1.3)
 - _lazy: Lazy `vue-router` by moving it to component (0.1.3)_
 - router: Add `vue-router` by creating two pages in the Nuxt `pages` folder. (0.1.2)
 - legal: Extract legal LICENSES from chunks and consolidate them into /LICENSES.txt. (0.1.1) -2.4 kB.
