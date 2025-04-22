@@ -9,7 +9,7 @@ export default defineNuxtPlugin(() => {
   if ($auth) {
     onAuthStateChanged($auth, (user) => {
       if (user) {
-        console.log('✔️😎🔥')
+        console.log('😎✔️🔥')
         isUser.value = true
       } else {
         isUser.value = false
