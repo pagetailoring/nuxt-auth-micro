@@ -7,6 +7,7 @@ async function logout() {
   const { $auth } = useNuxtApp()
 
   await signOut($auth)
+  navigateTo('/')
   isUser.value = false
   console.log('😎 ❌ logout...')
 }
