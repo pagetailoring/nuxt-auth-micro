@@ -1,21 +1,43 @@
 <script lang="ts" setup>
 import { signInWithEmailAndPassword } from 'firebase/auth'
+import { FirebaseError } from 'firebase/app'
+import { loginSuccess, loginUnable } from '~/utils/messages'
 
-const email = ref('')
-const password = ref('')
+const email = ref<string>('')
+const password = ref<string>('')
+const isSuccess = ref<boolean>(false)
+const error = ref<string>('')
+
+watch(error, (val) => {
+  if (val) {
+    password.value = ''
+    setTimeout(() => {
+      error.value = ''
+    }, 3000)
+  }
+})
 
 const { $auth } = useNuxtApp()
-async function login(email: string, password: string) {
+async function login(email: string, password: string): Promise<void> {
+  error.value = ''
+  isSuccess.value = false
   try {
     await signInWithEmailAndPassword($auth, email, password)
-  } catch (e) {
-    console.log(e)
+    isSuccess.value = true
+  } catch (err) {
+    if (err instanceof FirebaseError) {
+      error.value = err.code
+      console.log(err.message)
+    } else {
+      console.log(err)
+      error.value = loginUnable
+    }
   } finally {
-    console.log('Login successful')
+    if (isSuccess.value) console.log(loginSuccess)
   }
 }
 
-const handleForm = async () => {
+const handleForm = async (): Promise<void> => {
   await login(email.value, password.value)
 }
 </script>
@@ -27,6 +49,7 @@ const handleForm = async () => {
       label="Email"
       name="email"
       type="email"
+      placeholder="Email used to sign in"
       autocomplete="email"
       required
     />
@@ -35,9 +58,12 @@ const handleForm = async () => {
       label="Password"
       name="password"
       type="password"
+      placeholder="Type your password"
       autocomplete="current-password"
       required
     />
-    <UiButton type="submit">LOGIN</UiButton>
+    <UiButton type="submit" :style="{ background: error ? 'darkred' : '' }">
+      {{ error || 'LOGIN' }}
+    </UiButton>
   </form>
 </template>

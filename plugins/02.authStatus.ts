@@ -1,18 +1,24 @@
 import { onAuthStateChanged } from 'firebase/auth'
 import { defineNuxtPlugin } from '#app'
+import { userChecked, noAuthInit } from '~/utils/messages'
 
 export default defineNuxtPlugin(() => {
   const { $auth } = useNuxtApp()
   const isUser = useUserState()
+  const isAuthCheck = useUserCheckState()
 
   if ($auth) {
     onAuthStateChanged($auth, (user) => {
       if (user) {
-        console.log('✔️😎🔥')
+        console.log(userChecked)
         isUser.value = true
-      } else isUser.value = false
+      } else {
+        isUser.value = false
+      }
     })
   } else {
-    console.error('🔥 Firebase Auth is not initialized')
+    console.error(noAuthInit)
   }
+
+  isAuthCheck.value = true
 })
