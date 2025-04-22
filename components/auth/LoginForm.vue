@@ -8,10 +8,10 @@ const { $auth } = useNuxtApp()
 async function login(email: string, password: string) {
   try {
     await signInWithEmailAndPassword($auth, email, password)
-  } catch (e) {
-    console.log(e)
+  } catch (err) {
+    console.log(err)
   } finally {
-    console.log('Login successful')
+    console.log('😎 ✅ login...')
   }
 }
 

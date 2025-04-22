@@ -8,7 +8,7 @@ async function logout() {
 
   await signOut($auth)
   isUser.value = false
-  console.log('you logout...')
+  console.log('😎 ❌ logout...')
 }
 </script>
 
