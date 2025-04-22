@@ -28,6 +28,11 @@ export default defineNuxtConfig({
       ],
     },
   },
+  runtimeConfig: {
+    public: {
+      DOMAIN: process.env.DOMAIN,
+    },
+  },
   compatibilityDate: '2024-11-01',
 
   vite: {
