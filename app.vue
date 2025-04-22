@@ -1,6 +1,13 @@
 <script lang="ts" setup>
 const isUser = useUserState()
 const isAuthCheck = useUserCheckState()
+const isDelay = ref(true)
+
+onMounted(() => {
+  setTimeout(() => {
+    isDelay.value = false
+  }, 5000)
+})
 </script>
 
 <template>
@@ -14,5 +21,7 @@ const isAuthCheck = useUserCheckState()
 
       <LazyNuxtPage />
     </template>
+
+    <LazyAppConsoleInfo v-if="!isDelay" />
   </div>
 </template>
