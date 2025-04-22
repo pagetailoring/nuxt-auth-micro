@@ -52,7 +52,11 @@ Check out the [deployment documentation](https://nuxt.com/docs/getting-started/d
 
 ### Development
 
-I will use Bun for now:
+Configure your firebase project at [console.firebase.google.com](https://console.firebase.google.com)
+
+Rename `utils/firebaseConfig.example.ts` to `utils/firebaseConfig.ts`, and update it with your app's information.
+
+I'm using `Bun` for now, but you can use any bundler like `npm`, `pnpm`, `yarn`, or `deno`.
 
 ```bash
 bun i
