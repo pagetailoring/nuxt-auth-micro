@@ -6,6 +6,7 @@ A project focused on analyzing bundle size with different tools, using the simpl
 
 |         | build kB | bd. gzip |      diff |     ssr |    css |    xfr. |   res. | req. |   chunk |
 | :------ | -------: | -------: | --------: | ------: | -----: | ------: | -----: | ---: | ------: |
+| pinia   |    282.2 | 98.21 kB |  +1.36 kB |   833 B |      0 |  108 kB | 301 kB |   12 | 97.1 kB |
 | error   |   278.58 | 96.85 kB |  +1.15 kB |   828 B |      0 |  108 kB | 298 kB |   13 | 97.1 kB |
 | login   |   274.38 | 95.60 kB |  +0.19 kB |   914 B |      0 |  118 kB | 300 kB |   19 | 95.8 kB |
 | login   |   273.89 | 95.41 kB | -14.02 kB |   879 B |      0 |  116 kB | 299 kB |   18 | 95.6 kB |
@@ -31,8 +32,16 @@ A project focused on analyzing bundle size with different tools, using the simpl
 - `req.`: number of requests
 - `chunk`: first JS chunk size (largest)
 
-### Change log / versions
+## Change log
 
+### Branches and versions
+
+- `v0.2.1` - Add Pinia
+- `v0.2.0` - real micro routing, no css, firebase Auth - `v0.2-micro-with-routing-and-firebase-auth`
+
+### Change log
+
+- pinia: Add Pinia to the project and move all unchanged logic from useState in composables to Pinia (`0.2.1`)
 - error: Add [error.vue](https://nuxt.com/docs/guide/directory-structure/error) nuxt file, for handling errors (`0.2.0`) +1.15 kB in initial chunk but less requests.
 - login: Login refactor etc., handling error in login form, step back with lazy loding rooting, blocking of prerender protected rootes, console info (`0.1.3`)
 - _lazy: Lazy `vue-router` by moving it to component (`0.1.3`)_

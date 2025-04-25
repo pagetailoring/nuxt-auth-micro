@@ -1,6 +1,5 @@
 <script lang="ts" setup>
-const isUser = useUserState()
-const isAuthCheck = useUserCheckState()
+const { isUser, isAuthCheck } = storeToRefs(useUserAuthState())
 const isDelay = ref(true)
 
 onMounted(() => {

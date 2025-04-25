@@ -2,7 +2,7 @@
 import { signOut } from 'firebase/auth'
 import { logoutSuccess } from '~/utils/messages'
 
-const isUser = useUserState()
+const { isUser } = storeToRefs(useUserAuthState())
 
 async function logout() {
   const { $auth } = useNuxtApp()

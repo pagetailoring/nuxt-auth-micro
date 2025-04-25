@@ -4,8 +4,7 @@ import { userChecked, noAuthInit } from '~/utils/messages'
 
 export default defineNuxtPlugin(() => {
   const { $auth } = useNuxtApp()
-  const isUser = useUserState()
-  const isAuthCheck = useUserCheckState()
+  const { isUser, isAuthCheck } = storeToRefs(useUserAuthState())
 
   if ($auth) {
     onAuthStateChanged($auth, (user) => {
