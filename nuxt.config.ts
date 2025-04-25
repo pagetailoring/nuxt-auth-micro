@@ -9,7 +9,7 @@ const PUBLIC_LICENSE_FILE = resolve(__dirname, 'public/LICENSES.txt')
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ['@nuxt/eslint', '@nuxtjs/html-validator', 'nuxt-payload-analyzer'],
+  modules: ['@nuxt/eslint', '@nuxtjs/html-validator', 'nuxt-payload-analyzer', '@pinia/nuxt'],
 
   ssr: false,
   devtools: { enabled: true },
